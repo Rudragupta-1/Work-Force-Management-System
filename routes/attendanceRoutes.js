@@ -9,6 +9,6 @@ router.post('/mark',managerMiddleware,attendanceController.markAttendance);
 
 // Employee can view their attendance
 
-router.get('/:userId',attendanceController.geUserAttendance);
+router.get('/:userId',attendanceController.getUserAttendance);
 
 module.exports=router;
