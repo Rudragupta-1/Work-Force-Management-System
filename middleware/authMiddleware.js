@@ -27,6 +27,7 @@ exports.adminMiddleware=async(req,res,next)=>{
     next();
 };
 
+// For managers
 exports.managerMiddleware=async(req,res,next)=>{
     if(req.user.role!=='manager' && req.user.role!=='admin'){
         return res.status(403).json({message:'Access denied'});
