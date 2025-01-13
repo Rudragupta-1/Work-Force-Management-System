@@ -26,6 +26,15 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  workHours: [{
+    date: { type: Date, required: true },
+    hours: { type: Number, required: true },
+  }],
+  shift: {
+    type: String,
+    enum: ['morning', 'afternoon', 'evening'],
+    default: 'morning',
+  },
 });
 
 module.exports = mongoose.model('User', userSchema);
