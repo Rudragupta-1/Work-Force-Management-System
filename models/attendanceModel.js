@@ -1,10 +1,25 @@
- const mongoose=require('mongoose');
+const mongoose = require('mongoose');
 
- const attendanceSchema=new mongoose.Schema({
-    user:{type:mongoose.Schema.Types.ObjectId,ref:"User"},
-    date:{type:Date,default:Date.now},
-    status:{type:String, enum:['present','absent','late'],default:'present'},
- })
-
- const Attendance=mongoose.model('Attendance',attendanceSchema);
- module.exports=Attendance;
+const attendanceSchema = new mongoose.Schema({
+   user: {
+     type: mongoose.Schema.Types.ObjectId,
+     ref: 'User',
+     required: true,
+   },
+   date: {
+     type: Date,
+     required: true,
+   },
+   status: {
+     type: String,
+     enum: ['present', 'absent', 'on-leave'],
+     default: 'present',
+   },
+   faceVerified: {
+     type: Boolean,
+     default: false, // Will be true if face recognition verifies attendance
+   },
+ });
+ 
+ module.exports = mongoose.model('Attendance', attendanceSchema);
+ 
