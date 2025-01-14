@@ -1,7 +1,7 @@
 const express=require('express');
 const router=express.Router();
 const attendanceController=require('../controllers/attendanceController');
-const {managerMiddleware} =require('../middleware/authMiddleware');
+const {managerMiddleware} =require('../middlewares/authMiddleware');
 
 // Admin/Manager route to mark attendance
 

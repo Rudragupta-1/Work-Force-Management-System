@@ -1,7 +1,7 @@
 const express=require('express');
 const router=express.Router();
 const taskController=require('../controllers/taskController');
-const {managerMiddleware}=require('../middleware/authMiddleware');
+const {managerMiddleware}=require('../middlewares/authMiddleware');
 
 // Manager route to assign task
 router.post('/assign',managerMiddleware,taskController.assignTask);
