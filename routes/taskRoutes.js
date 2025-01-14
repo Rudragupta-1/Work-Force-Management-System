@@ -1,13 +1,12 @@
 const express=require('express');
+const {createTask,getTasks,updateTask,deleteTask}=require('../controllers/taskController');
+const {protect,manager}=require('../middlewares/authMiddleware');
+
 const router=express.Router();
-const taskController=require('../controllers/taskController');
-const {managerMiddleware}=require('../middlewares/authMiddleware');
 
-// Manager route to assign task
-router.post('/assign',managerMiddleware,taskController.assignTask);
-
-// Employee to get their tasks
-
-router.get('/:uderId',taskController.getUserTasks);
+router.post('/',protect,manager,createTask);
+router.get('/',protect,getTasks);
+router.put('/:id',protect,manager,updateTask);
+router.delete('/:id',protect,manager,deleteTask);
 
 module.exports=router;

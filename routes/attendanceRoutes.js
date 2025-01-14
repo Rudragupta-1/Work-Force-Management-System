@@ -1,14 +1,14 @@
 const express=require('express');
+const {markManualAttendance,markFaceAttendance,getAttendance}=require('../controllers/attendanceController');
+const {protect,manager} =require('../middlewares/authMiddleware');
+
 const router=express.Router();
-const attendanceController=require('../controllers/attendanceController');
-const {managerMiddleware} =require('../middlewares/authMiddleware');
+
 
 // Admin/Manager route to mark attendance
 
-router.post('/mark',managerMiddleware,attendanceController.markAttendance);
-
-// Employee can view their attendance
-
-router.get('/:userId',attendanceController.getUserAttendance);
+router.post('/manual',protect,manager,markManualAttendance);
+router.post('/face',protect,manager,markFaceAttendance);
+router.get('/:employeeId',protect,getAttendance);
 
 module.exports=router;
