@@ -13,7 +13,7 @@ const sendNotification=async(req,res)=>{
     }
 }
 
-const getNotification=async(req,res)=>{
+const getNotifications=async(req,res)=>{
     try{
         const {userId}=req.body;
         const notifications=await Notification.find({userId});
@@ -24,4 +24,4 @@ const getNotification=async(req,res)=>{
     }
 }
 
-module.exports={sendNotification,getNotification};
+module.exports={sendNotification,getNotifications};

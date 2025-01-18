@@ -1,6 +1,6 @@
  const express=require('express');
- const {createEmployee,getEmployees,updateEmployee,deletEmployee}=require('../controllers/employeeController');
- const {protect,admin}=require('../middleware/authMiddleware');
+ const {createEmployee,getEmployees,updateEmployee,deleteEmployee}=require('../controllers/employeeController');
+ const {protect,admin}=require('../middlewares/authMiddleware');
  
  const router=express.Router();
 
@@ -10,8 +10,8 @@
     .post(protect,admin,createEmployee)
     .get(protect,admin,getEmployees);
 
-    router.route('/:id')
-        .put(protect,admin,updateEmployee)
-        .delete(protect,admin,deletEmployee);
+router.route('/:id')
+    .put(protect,admin,updateEmployee)
+    .delete(protect,admin,deleteEmployee);
         
  module.exports=router;
