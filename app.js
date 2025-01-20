@@ -24,11 +24,11 @@ app.use(express.json());
 // Routes
 app.use('/api/auth', require('./routes/authRoutes')); // Working Fine
 app.use('/api/employees', require('./routes/employeeRoutes')); // Working Fine
-app.use('/api/attendance', require('./routes/attendanceRoutes'));
-app.use('/api/notifications', require('./routes/notificationRoutes')); // Fixed missing `/`
-app.use('/api/tasks', require('./routes/taskRoutes')); // Fixed missing `/`
-app.use('/api/leaves', require('./routes/leaveRoutes')); // Fixed missing `;`
-app.use('/api/shifts', require('./routes/shiftRoutes')); // Fixed missing `;`
+app.use('/api/attendance', require('./routes/attendanceRoutes')); // Working Fine
+app.use('/api/notifications', require('./routes/notificationRoutes')); 
+app.use('/api/tasks', require('./routes/taskRoutes')); 
+app.use('/api/leaves', require('./routes/leaveRoutes')); 
+app.use('/api/shifts', require('./routes/shiftRoutes')); 
 
 // Global Error Handler
 app.use(errorMiddleware);
