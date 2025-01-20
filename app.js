@@ -25,7 +25,7 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/authRoutes')); // Working Fine
 app.use('/api/employees', require('./routes/employeeRoutes')); // Working Fine
 app.use('/api/attendance', require('./routes/attendanceRoutes')); // Working Fine
-app.use('/api/notifications', require('./routes/notificationRoutes')); 
+app.use('/api/notifications', require('./routes/notificationRoutes')); // Working Fine
 app.use('/api/tasks', require('./routes/taskRoutes')); 
 app.use('/api/leaves', require('./routes/leaveRoutes')); 
 app.use('/api/shifts', require('./routes/shiftRoutes')); 
