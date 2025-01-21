@@ -9,3 +9,4 @@ router.get('/', protect, getShifts);
 router.put('/:id', protect, manager, updateShift);
 
 module.exports = router;
+ 

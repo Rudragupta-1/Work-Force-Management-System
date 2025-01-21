@@ -13,7 +13,7 @@ const shiftSchema = new mongoose.Schema({
       type: String,
       enum: ['morning', 'afternoon', 'evening'],
       required: true,
-    },
+    }, 
   });
   
   module.exports = mongoose.model('Shift', shiftSchema);

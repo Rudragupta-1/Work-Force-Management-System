@@ -10,7 +10,7 @@ const scheduleShift = async (req, res) => {
     res.status(500).json({ message: 'Error scheduling shift', error });
   }
 };
-
+ 
 // Get all shifts
 const getShifts = async (req, res) => {
   try {
