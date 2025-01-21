@@ -27,7 +27,7 @@ app.use('/api/employees', require('./routes/employeeRoutes')); // Working Fine
 app.use('/api/attendance', require('./routes/attendanceRoutes')); // Working Fine
 app.use('/api/notifications', require('./routes/notificationRoutes')); // Working Fine
 app.use('/api/tasks', require('./routes/taskRoutes'));  // Working Fine
-app.use('/api/leaves', require('./routes/leaveRoutes')); 
+app.use('/api/leaves', require('./routes/leaveRoutes')); // Working Fine
 app.use('/api/shifts', require('./routes/shiftRoutes')); 
 
 // Global Error Handler
@@ -37,3 +37,4 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`🚀 Server is running on port: ${PORT}`);
 });
+ 
