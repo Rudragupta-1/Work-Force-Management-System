@@ -28,7 +28,7 @@ app.use('/api/attendance', require('./routes/attendanceRoutes')); // Working Fin
 app.use('/api/notifications', require('./routes/notificationRoutes')); // Working Fine
 app.use('/api/tasks', require('./routes/taskRoutes'));  // Working Fine
 app.use('/api/leaves', require('./routes/leaveRoutes')); // Working Fine
-app.use('/api/shifts', require('./routes/shiftRoutes')); 
+app.use('/api/shifts', require('./routes/shiftRoutes')); // Working Fine
 
 // Global Error Handler
 app.use(errorMiddleware);
