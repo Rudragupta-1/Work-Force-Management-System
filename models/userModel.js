@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
+    unique: true, 
     lowercase: true, // Ensures email is stored in lowercase
     trim: true,
   },
@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
     default: 'employee',
   },
   faceData: {
-    type: String, // Store encoded facial data for recognition
+    type: [Number], // Store encoded facial data for recognition
   },
   points: {
     type: Number,
