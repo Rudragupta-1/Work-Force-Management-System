@@ -142,6 +142,80 @@ Each API follows **RESTful principles** and maintains a **robust, secure, and mo
 - **Easily extendable** with additional features.
 
 ---
+# 📌 Face Recognition Integration with MongoDB
+
+## Overview
+This project integrates **face recognition** into an **attendance system** using **MongoDB** for data storage. It employs **computer vision** techniques to detect, register, and verify faces, ensuring a robust and secure authentication mechanism.
+
+## 🚀 Technologies Used
+- **OpenCV** – For capturing and processing facial images
+- **Deep Learning Model** – SSD-based face detection (`Caffe Model`)
+- **MongoDB** – Database for storing user and attendance data
+- **Cosine Similarity** – For comparing face embeddings
+- **NumPy** – For numerical computations
+- **Scikit-Learn** – For similarity calculations
+- **Python** – Backend logic implementation
+
+---
+
+## 🔗 How Face Recognition Works
+### 1️⃣ **Face Registration**
+When a user registers, their facial features are:
+- Captured via webcam
+- Processed (grayscale conversion, resizing, and histogram equalization)
+- Converted into a **numerical vector**
+- Stored in MongoDB under the `faceData` field for future verification
+
+#### 📌 **Database Structure (`users` Collection)**
+```json
+{
+  "_id": ObjectId("..."),
+  "email": "user@example.com",
+  "faceData": [0.123, 0.456, ...]  // Flattened face vector
+}
+```
+
+### 2️⃣ **Face Verification & Attendance Marking**
+When an employee attempts to verify their identity:
+- A new facial image is captured
+- It is preprocessed and converted into a **feature vector**
+- The stored face vector is retrieved from MongoDB
+- **Cosine Similarity** compares the two vectors
+- If similarity exceeds `0.75`, the user is verified
+- Attendance is updated (or created if not present)
+
+#### 📌 **Attendance Update (`attendances` Collection)**
+```json
+{
+  "_id": ObjectId("..."),
+  "user": ObjectId("..."),
+  "date": "2025-01-24",
+  "status": "present",
+  "faceVerified": true
+}
+```
+
+### ✅ **Handling Edge Cases**
+- **If no face is detected:** Prompts the user to retry.
+- **If the face is unrecognized:** No attendance is marked.
+- **If attendance exists:** Updates existing record instead of creating a duplicate.
+
+---
+
+## 🔧 Robustness & Testing
+This system has been tested on **multiple individuals**, ensuring **high accuracy and minimal false positives**. The **face detection threshold (0.75 cosine similarity)** is optimized for real-world usage, providing a balance between security and usability.
+
+---
+
+## 🛠 How to Run
+```bash
+python face.py
+```
+1️⃣ **Register a new user**: Enter their email and capture their face.
+2️⃣ **Verify attendance**: Face recognition will confirm identity and update the database.
+
+This integration ensures a **seamless and automated** attendance tracking system using **AI-powered face recognition!** 🚀
+
 
 ## 📢 Conclusion
 This **Workforce Management System Backend** is a **highly scalable, secure, and well-structured** project designed by **Rudra Gupta**. It stands out due to its **unique approach to workforce operations**, ensuring smooth task handling, attendance tracking, leave management, and seamless communication. This project is **not available anywhere online**, making it an **exclusive benchmark in backend engineering**.
