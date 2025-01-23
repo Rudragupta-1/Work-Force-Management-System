@@ -142,6 +142,7 @@ Each API follows **RESTful principles** and maintains a **robust, secure, and mo
 - **Easily extendable** with additional features.
 
 ---
+
 # 📌 Face Recognition Integration with MongoDB
 
 ## Overview
