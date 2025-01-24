@@ -217,6 +217,65 @@ python face.py
 
 This integration ensures a **seamless and automated** attendance tracking system using **AI-powered face recognition!** 🚀
 
+Here’s a **professional README section** for the **Hungarian Algorithm** in your project:  
+
+---
+
+## **🔹 Automated Task Assignment Using Hungarian Algorithm**  
+
+### **📌 What is the Hungarian Algorithm?**  
+The **Hungarian Algorithm** is an **optimization technique** used for **solving assignment problems** in a **cost-effective manner**. It is particularly useful when there are multiple tasks and multiple employees, and we need to assign each task to an employee **optimally** based on a given set of criteria.  
+
+In this **Workforce Management System**, the algorithm **automates** task allocation, eliminating **manual selection** and ensuring a **mathematically optimized** distribution of work.
+
+---
+
+### **🚀 Why Use Hungarian Algorithm for Task Assignment?**  
+✔ **Eliminates manual task allocation** – No need for managers to manually assign tasks.  
+✔ **Optimal workload distribution** – Ensures fair work distribution among employees.  
+✔ **Based on multiple factors** – Assigns tasks based on attributes like **difficulty, priority, estimated time, and dependencies** (from Task Schema).  
+✔ **Fast & Scalable** – Works in a **single API call** and handles large datasets efficiently.  
+
+---
+
+### **⚙ How Does the Algorithm Work in Our Project?**  
+1️⃣ **Matrix Representation**:  
+   - Each **task** and **employee** are represented in a **cost matrix**.  
+   - The values in the matrix are computed based on task **difficulty, priority, estimated time, and employee workload**.  
+
+2️⃣ **Cost Calculation**:  
+   - The algorithm minimizes the "cost" of assigning tasks by considering:  
+     ✅ **Task Difficulty** (hard tasks to experienced employees)  
+     ✅ **Task Priority** (high-priority tasks are assigned first)  
+     ✅ **Estimated Time** (distributes tasks based on work hours)  
+     ✅ **Employee Availability** (ensures employees don’t get overloaded)  
+
+3️⃣ **Assignment Process**:  
+   - The algorithm finds an **optimal pairing** where each task is assigned to the most suitable employee.  
+
+4️⃣ **Single API Execution**:  
+   - **All tasks** are assigned **in one go** using an API call.  
+   - The `assignedTo` field in **MongoDB** is updated, and **task statuses** change from `"pending"` to `"in-progress"`.  
+
+---
+
+### **🔍 Example Workflow**  
+- Assume **5 employees** and **10 tasks**.  
+- The Hungarian Algorithm evaluates **all possible assignments** and finds the most optimal way to assign each task.  
+- Instead of random or manual allocation, the system **automatically assigns tasks** based on employee skill, availability, and workload.  
+- After execution, **MongoDB gets updated**, and tasks transition to `"in-progress"` with assigned employees.  
+
+---
+
+### **📌 Key Benefits**  
+✔ **Automated decision-making** – No human intervention required.  
+✔ **Optimized workforce utilization** – Balances workload effectively.  
+✔ **Ensures fairness** – Employees get tasks best suited for them.  
+✔ **Improves efficiency** – Tasks get assigned optimally in real-time.  
+
+---
+
+This **algorithm-driven automation** enhances the **scalability and efficiency** of the Workforce Management System. 🚀
 
 ## 📢 Conclusion
 This **Workforce Management System Backend** is a **highly scalable, secure, and well-structured** project designed by **Rudra Gupta**. It stands out due to its **unique approach to workforce operations**, ensuring smooth task handling, attendance tracking, leave management, and seamless communication. This project is **not available anywhere online**, making it an **exclusive benchmark in backend engineering**.
