@@ -4,11 +4,11 @@ const bcrypt = require('bcryptjs'); // Import bcrypt for password hashing
 // Creating Employee
 const createEmployee = async (req, res) => {
     try {
-        const { name, email, password, role } = req.body;
+        const { name, email, password, role, faceData, points, workHours, shift } = req.body;
 
         // Validate required fields
-        if (!name || !email || !password) {
-            return res.status(400).json({ message: "All fields are required" });
+        if (!name || !email || !password || !shift || !Array.isArray(workHours)) {
+            return res.status(400).json({ message: "All required fields must be provided" });
         }
 
         // Check if user already exists
@@ -17,19 +17,23 @@ const createEmployee = async (req, res) => {
             return res.status(400).json({ message: "User with this email already exists" });
         }
 
-        // Hash the password before saving
+        // Hash the password
         const hashedPassword = await bcrypt.hash(password, 10);
 
         // Ensure valid role
         const validRoles = ['employee', 'manager', 'admin'];
         const assignedRole = validRoles.includes(role) ? role : 'employee';
 
-        // Create employee
+        // Create employee with all required fields
         const employee = await User.create({
             name,
             email,
             password: hashedPassword,
-            role: assignedRole
+            role: assignedRole,
+            faceData: faceData || [], // Default empty array if not provided
+            points: points || 0, // Default to 0
+            workHours: workHours || [], // Default to empty array
+            shift
         });
 
         res.status(201).json({ message: "Employee created successfully", employee });
@@ -37,6 +41,7 @@ const createEmployee = async (req, res) => {
         res.status(500).json({ message: "Server error", error: error.message });
     }
 };
+
 
 // Get all employees (admin only)
 const getEmployees = async (req, res) => {

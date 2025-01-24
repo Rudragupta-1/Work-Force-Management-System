@@ -3,15 +3,34 @@ const mongoose = require('mongoose');
 
 const createTask = async (req, res) => {
   try {
-    const { title, description, priority,difficulty, dependencies, assignedTo, estimatedTime } = req.body;
+    const { title, description, priority, difficulty, dependencies, assignedTo, estimatedTime, status } = req.body;
 
+    // Validate required fields
     if (!title || !estimatedTime) {
       return res.status(400).json({ message: 'Title and estimatedTime are required' });
     }
 
-    const task = await Task.create({ title, description, priority,difficulty, dependencies, assignedTo, estimatedTime });
+    // Ensure valid priority
+    const validPriorities = ['low', 'medium', 'high'];
+    const taskPriority = validPriorities.includes(priority) ? priority : 'medium';
 
-    res.status(201).json(task);
+    // Ensure valid difficulty
+    const validDifficulties = ['easy', 'medium', 'hard'];
+    const taskDifficulty = validDifficulties.includes(difficulty) ? difficulty : 'medium';
+
+    // Create the task with all necessary fields
+    const task = await Task.create({
+      title,
+      description,
+      priority: taskPriority,
+      difficulty: taskDifficulty,
+      dependencies: dependencies || [],
+      assignedTo: assignedTo || null,
+      estimatedTime,
+      status: status || 'pending' // Default status
+    });
+
+    res.status(201).json({ message: "Task created successfully", task });
   } catch (error) {
     console.error("Error creating task:", error);
     res.status(500).json({ message: 'Error creating task', error: error.message });
